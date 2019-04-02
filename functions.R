@@ -328,7 +328,7 @@ form_portfolios <- function(file_path, stocks, wealth=100000, holding_period, cr
   
   wd <- getwd()
   
-  returns <- calculate_returns(stocks, periods = holding_periods)
+  returns <- calculate_returns(stocks, periods = holding_period)
   # use previously defined function to create returns
   
   setwd(file_path)
@@ -337,8 +337,6 @@ form_portfolios <- function(file_path, stocks, wealth=100000, holding_period, cr
   my_data <- lapply(my_files, read.csv)
   # import csv files and store in a list
   names(my_data) <- gsub("\\.csv$", "", my_files)
-  
-  returns <- calculate_returns(stocks, periods = holding_periods)
   
   setwd(file_path)
   my_files <- list.files(file_path, pattern = "\\.csv")
